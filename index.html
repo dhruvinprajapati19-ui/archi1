@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPUS ARC - Architecture Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Outfit:wght@300;400;600;800&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Fixed Global Background Video for About Section Parallax -->
+    <video id="global-bg-video" autoplay loop muted playsinline>
+        <source src="assets/ocean%20about.mp4" type="video/mp4">
+    </video>
+
+    <header class="navbar">
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 50 50" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
+                <!-- Opus Arc Logo -->
+                <path d="M 5 45 C 5 15, 45 15, 45 45" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+                <path d="M 25 5 L 12 45" fill="none" stroke="#ffb347" stroke-width="3" stroke-linecap="round" />
+                <path d="M 25 5 L 38 45" fill="none" stroke="#ffb347" stroke-width="3" stroke-linecap="round" />
+                <path d="M 17 30 L 33 30" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            <span class="logo-text"><span class="logo-opus">OPUS</span><span class="logo-arc">ARC</span><span class="logo-dot">.</span></span>
+        </div>
+        <div class="nav-toggler" id="nav-toggler">
+            <span class="toggler-bar"></span>
+            <span class="toggler-bar"></span>
+            <span class="toggler-bar"></span>
+        </div>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#why-choose-us">Why Us</a>
+            <a href="#get-in-touch">Contact</a>
+        </nav>
+    </header>
+
+    <main class="hero" id="home">
+        <div class="hero-content">
+            <div class="architect-draft-box">
+                <!-- Drafting Grid will be added via CSS -->
+                
+                <!-- Crosshairs -->
+                <span class="crosshair crosshair-tl">+</span>
+                <span class="crosshair crosshair-tr">+</span>
+                <span class="crosshair crosshair-bl">+</span>
+                <span class="crosshair crosshair-br">+</span>
+                
+                <!-- Dimension Lines -->
+                <div class="dim-line dim-horizontal">
+                    <span class="dim-text">ELEVATION 01</span>
+                </div>
+                <div class="dim-line dim-vertical">
+                    <span class="dim-text">SCALE 1:100</span>
+                </div>
+
+                <div class="hero-title-wrapper">
+                    <!-- Layer 1: Blueprint Outline -->
+                    <h1 class="hero-title hero-title-outline">Vision<br>In Form</h1>
+                    <!-- Layer 2: Scaffolding / Hatching -->
+                    <h1 class="hero-title hero-title-hatch">Vision<br>In Form</h1>
+                    <!-- Layer 3: Solid Final Form -->
+                    <h1 class="hero-title hero-title-solid">Vision<br>In Form</h1>
+                </div>
+            </div>
+            <p class="hero-subtitle">Crafting timeless spaces that redefine modern horizons.</p>
+            <button class="hero-cta">Discover Portfolio</button>
+        </div>
+    </main>
+
+    <!-- About Section with Fixed Video Background -->
+    <section class="about-section" id="about">
+        <div class="about-split-layout" style="display: flex; max-width: 1200px; width: 100%; margin: 0 auto; gap: 4rem; justify-content: space-between; align-items: flex-start; z-index: 2; position: relative;">
+            
+            <!-- Left Side: All Paragraphs -->
+            <div class="about-left" style="flex: 1; display: flex; flex-direction: column; gap: 2rem;">
+                <p class="about-text" style="margin: 0; font-size: 1.25rem; color: #ffffff; line-height: 1.8; text-align: left; text-shadow: 0 4px 15px rgba(0,0,0,1);">Architecture is the silent poetry of space. We transcend traditional design by fusing structural elegance with the raw, fluid beauty of nature—crafting timeless sanctuaries that breathe with their surroundings.</p>
+                <p class="about-text" style="margin: 0; font-size: 1.25rem; color: #ffffff; line-height: 1.8; text-align: left; text-shadow: 0 4px 15px rgba(0,0,0,1);">Every line drawn is a commitment to the future. We sculpt light and shadow, blending brutalist forms with organic landscapes to forge environments that inspire awe and command presence.</p>
+                <p class="about-text" style="margin: 0; font-size: 1.25rem; color: #ffffff; line-height: 1.8; text-align: left; text-shadow: 0 4px 15px rgba(0,0,0,1);">Beyond mere structures, we engineer experiences. By embracing sustainable innovation and bold aesthetics, our creations stand as monumental testaments to human imagination and environmental harmony.</p>
+            </div>
+            
+            <!-- Right Side: Info and Button -->
+            <div class="about-right" style="flex: 0.6; display: flex; flex-direction: column; gap: 2rem; align-items: flex-start;">
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <h5 class="section-title about-title" style="margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">About OPUS ARC</h5>
+                    <div class="accent-line" style="margin: 0; width: 60px;"></div>
+                </div>
+                
+                <div class="about-info" style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2rem; margin-top: 1rem;">
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="font-family: 'Syncopate', sans-serif; font-size: 3.5rem; color: #ffb347; line-height: 1; text-shadow: 0 5px 15px rgba(255, 179, 71, 0.3);">15+</span>
+                        <span style="font-family: 'Outfit', sans-serif; color: #ffffff; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; text-shadow: 0 2px 10px rgba(0,0,0,1);">Years of Excellence</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="font-family: 'Syncopate', sans-serif; font-size: 3.5rem; color: #ffb347; line-height: 1; text-shadow: 0 5px 15px rgba(255, 179, 71, 0.3);">120</span>
+                        <span style="font-family: 'Outfit', sans-serif; color: #ffffff; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; text-shadow: 0 2px 10px rgba(0,0,0,1);">Projects Worldwide</span>
+                    </div>
+                </div>
+                
+                <button class="hero-cta about-cta" style="margin-top: auto; width: 100%;">DISCOVER OUR VISION</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Rotating Carousel Projects Section -->
+    <section class="projects-section">
+        <div class="section-header" id="projects" style="scroll-margin-top: 80px;">
+            <h2 class="section-title about-title">Projects</h2>
+            <div class="accent-line"></div>
+        </div>
+
+        <div class="carousel-layout">
+            <!-- Left Side: Dynamic Text Details -->
+            <div class="project-info-display">
+                <span class="p-number" id="p-num">01</span>
+                <h3 class="p-title" id="p-title">The Horizon Villa</h3>
+                <p class="p-meta" id="p-meta">Los Angeles, CA &nbsp;|&nbsp; Residential</p>
+                <p class="p-desc" id="p-desc">A breathtaking modern villa perfectly integrated into the coastal cliffs.
+                    Features sweeping glass facades and sustainable luxury materials.</p>
+                <button class="p-btn" style="margin: 0 auto; display: block;">Explore Project</button>
+            </div>
+            <!-- Right Side: Luxury Slider removed per user request -->
+        </div>
+    </section>
+
+    <!-- Portfolio / Works Section (formerly Contact) -->
+    <section class="contact-section">
+        <div class="contact-content" id="portfolio" style="scroll-margin-top: 100px;">
+            <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 2rem;">
+                <h2 class="section-title about-title" style="margin-top: 0; text-align: center;">Signature Portfolio</h2>
+                <div class="accent-line"></div>
+            </div>
+            
+            <div class="contact-split-layout">
+                <div class="contact-typography" style="margin-top: -2rem;">
+                    <h1 class="contact-huge-text text-mask" id="sig-title">INITIATE PROJECT</h1>
+                    <p class="hero-subtitle form-subtitle" id="sig-desc" style="max-width: 400px; margin-top: 2rem; color: #a0a0a0;">Share your vision with us. Our architects will help you shape the future of your space.</p>
+                </div>
+                
+                <div class="contact-slider-container" style="width: 500px; height: 500px; padding: 2px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); flex-shrink: 0; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                    <!-- Spinning glowing border -->
+                    <div style="position: absolute; width: 150%; height: 150%; background: conic-gradient(transparent, transparent 60%, rgba(255, 179, 71, 0.4) 100%); z-index: 0; animation: spinBorder 4s linear infinite;"></div>
+                    
+                    <!-- Inner Glassmorphism Card -->
+                    <div style="width: 100%; height: 100%; background: rgba(10, 15, 20, 0.9); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border-radius: 14px; position: relative; z-index: 1; padding: 1.5rem;">
+                        <div style="width: 100%; height: 100%; overflow: hidden; border-radius: 8px; position: relative;">
+                            <img id="signature-slider-img" src="assets/slide1.png" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.9) contrast(1.1);">
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: inset 0 0 30px rgba(0,0,0,0.5); pointer-events: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="why-container" id="why-choose-us" style="scroll-margin-top: 120px;">
+            <div class="why-left archi-style-left">
+                <!-- Drafting elements -->
+                <div class="crosshair top-left">+</div>
+                <div class="crosshair bottom-right">+</div>
+                
+                <div class="archi-heading">
+                    <span class="archi-label">SEC. 03 / OVERVIEW</span>
+                    <h2 class="why-main-title">WHY<br>CH<span style="color: #ffb347;">OO</span>SE<br>US.</h2>
+                </div>
+                <p class="why-main-desc">Elevating spaces beyond the ordinary. We merge structural integrity with poetic design.</p>
+            </div>
+
+            <div class="why-right" style="overflow: hidden;">
+                <div class="why-row active-row" id="why-slide-container">
+                    <div class="why-row-num" id="why-num">01</div>
+                    <div class="why-row-content">
+                        <h3 class="why-row-title" id="why-title">VISIONARY ARCHITECTURE</h3>
+                        <p class="why-row-text" id="why-desc">We transcend traditional design by fusing structural elegance with raw, fluid beauty, crafting monumental sanctuaries that breathe with their surroundings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get In Touch Section -->
+    <section class="get-in-touch">
+        <div class="get-in-touch-content" id="get-in-touch" style="scroll-margin-top: 100px;">
+            <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 2rem;">
+                <h2 class="section-title about-title" style="margin-top: 0; text-align: center;">Collaborate With Us</h2>
+                <div class="accent-line"></div>
+            </div>
+            
+            <div class="contact-split-layout">
+                <div class="contact-typography" style="margin-top: -2rem;">
+                    <h1 class="contact-huge-text text-mask" style="background-image: url('assets/slide2.png');">CRAFT LEGACY</h1>
+                    <p class="hero-subtitle form-subtitle" style="max-width: 400px; margin-top: 2rem; color: #a0a0a0;">Ready to start your next big project? Connect with our architects to shape the future of your space.</p>
+                    
+                    <!-- Creative Connectivity Section -->
+                    <div class="social-connect-container">
+                        <a href="tel:+1234567890" class="social-link">
+                            <span class="social-icon">PH</span>
+                            <div class="social-line"></div>
+                            <span class="social-text">+1 (234) 567-890</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon">EM</span>
+                            <div class="social-line"></div>
+                            <span class="social-text">hello@opusarc.com</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon">IG</span>
+                            <div class="social-line"></div>
+                            <span class="social-text">@opusarc.design</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon">FB</span>
+                            <div class="social-line"></div>
+                            <span class="social-text">OPUS ARC Studio</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <div class="contact-form-inner">
+                        <div class="form-corner tl"></div>
+                        <div class="form-corner tr"></div>
+                        <div class="form-corner bl"></div>
+                        <div class="form-corner br"></div>
+                        
+                        <span class="form-archi-label" style="margin-bottom: 2rem;">SEC. 04 / INQUIRY</span>
+
+                        <form class="premium-form">
+                            <div class="form-group">
+                                <input type="text" class="form-input" placeholder="Your Name" required>
+                                <span class="input-highlight"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-input" placeholder="Your Email" required>
+                                <span class="input-highlight"></span>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-input form-textarea" rows="4" placeholder="Your Message" required></textarea>
+                                <span class="input-highlight"></span>
+                            </div>
+                            <button type="submit" class="hero-cta form-submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxurious Footer -->
+    <footer class="lux-footer">
+        <!-- Huge background text for architectural feel -->
+        <div class="footer-bg-text"><span class="logo-opus">OPUS</span><span class="logo-arc">ARC</span>.</div>
+        
+        <div class="footer-content">
+            <div class="footer-brand">
+                <svg class="logo-icon" viewBox="0 0 50 50" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Opus Arc Logo -->
+                    <path d="M 5 45 C 5 15, 45 15, 45 45" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+                    <path d="M 25 5 L 12 45" fill="none" stroke="#ffb347" stroke-width="3" stroke-linecap="round" />
+                    <path d="M 25 5 L 38 45" fill="none" stroke="#ffb347" stroke-width="3" stroke-linecap="round" />
+                    <path d="M 17 30 L 33 30" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                <h3 class="footer-logo-text"><span class="logo-opus">OPUS</span><span class="logo-arc">ARC</span><span>.</span></h3>
+                <p class="footer-tagline">Elevating spaces beyond the ordinary. Merging structural integrity with poetic design.</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4 class="footer-col-title">Navigation</h4>
+                    <a href="#home">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#portfolio">Portfolio</a>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-col-title">Services</h4>
+                    <a href="#">Architecture</a>
+                    <a href="#">Interior Design</a>
+                    <a href="#">Urban Planning</a>
+                    <a href="#">Landscape</a>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-col-title">Studio</h4>
+                    <p>124 Architecture Blvd,<br>Suite 400<br>New York, NY 10012</p>
+                    <a href="mailto:hello@opusarc.com" class="footer-email">hello@opusarc.com</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 OPUS ARC Studio. All Rights Reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

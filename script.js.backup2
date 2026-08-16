@@ -1,0 +1,213 @@
+// Wait for DOM
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- GSAP Animations ---
+    gsap.to(".hero-title", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out"
+    });
+
+    gsap.to(".hero-subtitle", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.8,
+        ease: "power3.out"
+    });
+
+    gsap.to(".hero-cta", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 1.1,
+        ease: "power3.out"
+    });
+
+    // --- Three.js Setup ---
+    const container = document.getElementById('canvas-container');
+    
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0xffb347, 0.003); // Match fog to the warm sunset horizon
+
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 30;
+    camera.position.x = 10;
+    camera.position.y = 5;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true; // Enable shadows
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    container.appendChild(renderer.domElement);
+
+    // --- Lighting for Realistic Models ---
+    const ambientLight = new THREE.AmbientLight(0xffddbb, 0.8); // Warm ambient light for evening
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xff8c00, 2); // Orange sunset directional light
+    directionalLight.position.set(15, 10, 15); // Lower in the sky like sunset
+    directionalLight.castShadow = true;
+    directionalLight.shadow.mapSize.width = 2048;
+    directionalLight.shadow.mapSize.height = 2048;
+    directionalLight.shadow.camera.near = 0.5;
+    directionalLight.shadow.camera.far = 100;
+    directionalLight.shadow.camera.left = -30;
+    directionalLight.shadow.camera.right = 30;
+    directionalLight.shadow.camera.top = 30;
+    directionalLight.shadow.camera.bottom = -30;
+    scene.add(directionalLight);
+
+    const backLight = new THREE.DirectionalLight(0x446d88, 1); // Cool blue backlight from sky
+    backLight.position.set(-15, 20, -15);
+    scene.add(backLight);
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    // --- Loading a Realistic 3D Model (GLTF/GLB) ---
+    /* 
+    // To load your own realistic building model:
+    // 1. Download a .glb or .gltf 3D model.
+    // 2. Put it in the same folder as this script.
+    // 3. Uncomment the code below and replace 'your_model.glb' with your file name.
+    
+    const loader = new THREE.GLTFLoader();
+    loader.load('your_model.glb', function (gltf) {
+        const model = gltf.scene;
+        model.scale.set(1, 1, 1); // Adjust scale if needed
+        model.position.set(0, -5, 0); // Adjust position if needed
+        group.add(model);
+    }, undefined, function (error) {
+        console.error(error);
+    });
+    */
+
+    // --- Abstract Floating Architectural Cityscape ---
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const objects = [];
+
+    // Ultra-Premium Deep Black Shiny Glass Material
+    const buildingMaterial = new THREE.MeshPhysicalMaterial({ 
+        color: 0x020202, // Deep black color
+        metalness: 1.0,  // Maximum metalness for reflections
+        roughness: 0.05, // Very low roughness for high gloss shine
+        transmission: 0.3, // Reduced transmission so it stays dark but still glassy
+        ior: 2.0, // High index of refraction for crystal-like edges
+        thickness: 2.5,
+        clearcoat: 1.0, // Extra shiny coat on top
+        clearcoatRoughness: 0.0,
+        transparent: true,
+        opacity: 0.95
+    });
+
+    // Create a cluster of tall, skyscraper-like blocks
+    for (let i = 0; i < 150; i++) {
+        const mesh = new THREE.Mesh(geometry, buildingMaterial);
+        
+        // Clustered positions
+        mesh.position.x = (Math.random() - 0.5) * 50;
+        mesh.position.y = (Math.random() - 0.5) * 10 - 5;
+        mesh.position.z = (Math.random() - 0.5) * 50;
+        
+        // Building-like scale (tall and rectangular)
+        mesh.scale.x = Math.random() * 2 + 1;
+        mesh.scale.y = Math.random() * 25 + 5;
+        mesh.scale.z = Math.random() * 2 + 1;
+        
+        // Glowing architectural edges (warm tint for sunset)
+        const edges = new THREE.EdgesGeometry(geometry);
+        const edgeMaterial = new THREE.LineBasicMaterial({ 
+            color: 0xffaa55, // Warm sunset reflection on edges
+            transparent: true, 
+            opacity: 0.5 
+        });
+        const edgeLines = new THREE.LineSegments(edges, edgeMaterial);
+        mesh.add(edgeLines);
+
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        
+        mesh.updateMatrix();
+        mesh.matrixAutoUpdate = false;
+        
+        group.add(mesh);
+        objects.push(mesh);
+    }
+
+    // Add some particles for atmosphere
+    const particleGeometry = new THREE.BufferGeometry();
+    const particleCount = 1000;
+    const posArray = new Float32Array(particleCount * 3);
+
+    for(let i = 0; i < particleCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 100;
+    }
+
+    particleGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const particleMaterial = new THREE.PointsMaterial({
+        size: 0.05,
+        color: 0xd4af37, // accent color
+        transparent: true,
+        opacity: 0.8
+    });
+
+    const particlesMesh = new THREE.Points(particleGeometry, particleMaterial);
+    scene.add(particlesMesh);
+
+    // Mouse interaction
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    const windowHalfX = window.innerWidth / 2;
+    const windowHalfY = window.innerHeight / 2;
+
+    document.addEventListener('mousemove', (event) => {
+        mouseX = (event.clientX - windowHalfX);
+        mouseY = (event.clientY - windowHalfY);
+    });
+
+    // Animation Loop
+    const clock = new THREE.Clock();
+
+    function animate() {
+        requestAnimationFrame(animate);
+
+        const elapsedTime = clock.getElapsedTime();
+
+        // Smooth mouse follow
+        targetX = mouseX * 0.001;
+        targetY = mouseY * 0.001;
+
+        group.rotation.y += 0.002;
+        group.rotation.x += 0.05 * (targetY - group.rotation.x);
+        group.rotation.y += 0.05 * (targetX - group.rotation.y);
+
+        particlesMesh.rotation.y = elapsedTime * 0.05;
+
+        // Animate individual objects subtly
+        for (let i = 0; i < objects.length; i++) {
+            const obj = objects[i];
+            // Just a subtle float
+            // We'd need matrixAutoUpdate = true to do this easily, let's just rotate the whole group for performance
+        }
+
+        camera.lookAt(scene.position);
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Resize Handler
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+});
